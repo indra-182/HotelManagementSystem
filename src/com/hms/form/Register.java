@@ -9,6 +9,8 @@ import com.hms.model.Users;
 import com.hms.query.Query;
 
 import javax.swing.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -104,7 +106,7 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(txtQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, -1, -1));
 
         txtSetQuestion.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        txtSetQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Pertanyaan", "Apa buah favoritku?", "Dimana aku lahir?", "Angka favoritku?" }));
+        txtSetQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Pilih Pertanyaan", "Apa buah favoritku?", "Dimana aku lahir?", "Angka favoritku?"}));
         getContentPane().add(txtSetQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 510, 370, -1));
 
         txtAnswer.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -185,9 +187,10 @@ public class Register extends javax.swing.JFrame {
         Users users = new Users();
         users.setName(txtSetNama.getText());
         users.setEmail(txtSetEmail.getText());
-        users.setPassword(String.valueOf(txtSetPassword.getPassword()));
         users.setSecurityQuestion(txtSetQuestion.getSelectedItem().toString());
         users.setAnswer(txtSetAnswer.getText());
+        String encryptedPassword = encryptPass(String.valueOf(txtSetPassword.getPassword()));
+        users.setPassword(encryptedPassword);
 
         if (users.getEmail().equals("superadmin@mailinator.com")) {
             users.setRole("Super Admin");
@@ -223,6 +226,7 @@ public class Register extends javax.swing.JFrame {
         new Login().setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
+
     public static boolean validateEmail(String email) {
         String queryCheckEmail = "SELECT COUNT(*) FROM users WHERE email = '" + email + "'";
         try {
@@ -255,6 +259,28 @@ public class Register extends javax.swing.JFrame {
             return false;
         }
         return true;
+    }
+
+    public static String encryptPass(String password) {
+        try {
+            //retrieve instance of the encryptor of SHA-256
+            MessageDigest digestor = MessageDigest.getInstance("SHA-256");
+            //retrieve bytes to encrypt
+            byte[] encodedhash = digestor.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder encryptionValue = new StringBuilder(2 * encodedhash.length);
+            //perform encryption
+            for (byte b : encodedhash) {
+                String hexVal = Integer.toHexString(0xff & b);
+                if (hexVal.length() == 1) {
+                    encryptionValue.append('0');
+                }
+                encryptionValue.append(hexVal);
+            }
+            //return encrypted value
+            return encryptionValue.toString();
+        } catch (Exception ex) {
+            return ex.getMessage();
+        }
     }
 
 

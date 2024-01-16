@@ -120,7 +120,8 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Users users = new Users();
         users.setEmail(txtSetEmail.getText());
-        users.setPassword(String.valueOf(txtSetPassword.getPassword()));
+        String encryptedPassword = Register.encryptPass(String.valueOf(txtSetPassword.getPassword()));
+        users.setPassword(encryptedPassword);
 
         if (users.getEmail().isEmpty() || users.getPassword().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Email dan Password harus diisi");

@@ -14,7 +14,7 @@ import java.sql.Statement;
 /**
  * @author Mahadi Indra <indra-182 on github.com>
  */
-public class Table {
+public class CreateTable {
 
     public static void main(String[] args) {
         Connection connection = null;

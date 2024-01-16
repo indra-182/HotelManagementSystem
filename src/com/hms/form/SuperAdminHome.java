@@ -9,6 +9,7 @@ import com.hms.query.Query;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -67,7 +68,7 @@ public class SuperAdminHome extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 30, -1, -1));
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1550, 30, -1, -1));
 
         btnExit.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/close.jpg"))); // NOI18N
@@ -77,7 +78,7 @@ public class SuperAdminHome extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1800, 30, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1710, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("Cari by Nama atau Email");
@@ -101,13 +102,18 @@ public class SuperAdminHome extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1630, 270, -1, -1));
 
         tableData.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null}
-                },
-                new String[]{
-                        "Email", "Name", "Status", "Role"
-                }
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Email", "Name", "Status", "Role"
+            }
         ));
+        tableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableData);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 1430, 540));
@@ -196,6 +202,23 @@ public class SuperAdminHome extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnCariActionPerformed
+
+    private void tableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataMouseClicked
+        // TODO add your handling code here:
+        int index = tableData.getSelectedRow();
+        TableModel model = tableData.getModel();
+        String email = model.getValueAt(index, 0).toString();
+        String status = model.getValueAt(index, 2).toString();
+        if (status.equalsIgnoreCase("pending")) {
+            int choose = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin mengubah user " + email + " menjadi aktif?", "Exit", JOptionPane.YES_NO_OPTION);
+            if (choose == 0) {
+                String query = "UPDATE users SET status = 'Active' WHERE email = '" + email + "'";
+                Query.setData(query, "User dengan email" + email + " sudah aktif");
+                setVisible(false);
+                new SuperAdminHome().setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_tableDataMouseClicked
 
     /**
      * @param args the command line arguments
