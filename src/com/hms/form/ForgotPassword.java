@@ -53,7 +53,6 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1920, 1080));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
@@ -138,6 +137,11 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         btnRegister.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 720, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/lupapassword.jpg"))); // NOI18N
@@ -156,6 +160,8 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new Login().setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -213,6 +219,12 @@ public class ForgotPassword extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new Register().setVisible(true);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     private static String getSecurityQuestion(String email) {
         String securityQuestion = "";

@@ -95,6 +95,11 @@ public class Login extends javax.swing.JFrame {
 
         btnLupaPassword.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         btnLupaPassword.setText("Lupa Password?");
+        btnLupaPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLupaPasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLupaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 640, -1, -1));
 
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/close.jpg"))); // NOI18N
@@ -156,6 +161,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new Register().setVisible(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -169,6 +176,12 @@ public class Login extends javax.swing.JFrame {
     private void txtSetEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSetEmailActionPerformed
+
+    private void btnLupaPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaPasswordActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new ForgotPassword().setVisible(true);
+    }//GEN-LAST:event_btnLupaPasswordActionPerformed
 
     private boolean validateLogin(String email, String password) {
         String query = "SELECT * FROM users WHERE email = '" + email + "' AND password = '" + password + "'";

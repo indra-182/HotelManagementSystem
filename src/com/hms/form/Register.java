@@ -146,6 +146,11 @@ public class Register extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 740, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -204,11 +209,19 @@ public class Register extends javax.swing.JFrame {
 
     private void btnLupaPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaPasswordActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new ForgotPassword().setVisible(true);
     }//GEN-LAST:event_btnLupaPasswordActionPerformed
 
     private void txtSetNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSetNamaActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     public static boolean validateEmail(String email) {
         String queryCheckEmail = "SELECT COUNT(*) FROM users WHERE email = '" + email + "'";
