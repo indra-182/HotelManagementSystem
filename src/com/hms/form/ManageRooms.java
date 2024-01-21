@@ -5,7 +5,7 @@
  */
 package com.hms.form;
 
-import com.hms.model.Kamar;
+import com.hms.model.Rooms;
 import com.hms.query.Query;
 
 import javax.swing.JOptionPane;
@@ -82,7 +82,7 @@ public class ManageRooms extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nomor Kamar", "Tipe Kamar", "Kasur", "Harga", "Status"
+                "Nomor Kamar", "Tipe Kamar", "Tipe Kasur", "Harga", "Status"
             }
         ));
         jScrollPane1.setViewportView(tableKamar);
@@ -114,7 +114,7 @@ public class ManageRooms extends javax.swing.JFrame {
         getContentPane().add(txtSetTipeKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1335, 279, 400, -1));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
-        jLabel3.setText("Kasur");
+        jLabel3.setText("Tipe Kasur");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1335, 325, -1, -1));
 
         txtSetKasur.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
@@ -163,28 +163,28 @@ public class ManageRooms extends javax.swing.JFrame {
 
     private void btnAddRuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRuanganActionPerformed
         // TODO add your handling code here:
-        Kamar kamar = new Kamar();
-        kamar.setNomorKamar(txtSetNomorKamar.getText());
-        kamar.setTipeKamar(txtSetTipeKamar.getSelectedItem().toString());
-        kamar.setTipeKasur(txtSetKasur.getSelectedItem().toString());
-        kamar.setHarga(Integer.parseInt(txtSetHarga.getText()));
+        Rooms rooms = new Rooms();
+        rooms.setNomorKamar(txtSetNomorKamar.getText());
+        rooms.setTipeKamar(txtSetTipeKamar.getSelectedItem().toString());
+        rooms.setTipeKasur(txtSetKasur.getSelectedItem().toString());
+        rooms.setHarga(Integer.parseInt(txtSetHarga.getText()));
 
-        if (kamar.getNomorKamar().equals("") || kamar.getTipeKamar().equals("") || kamar.getTipeKasur().equals("") || kamar.getHarga() == 0) {
+        if (rooms.getNomorKamar().equals("") || rooms.getTipeKamar().equals("") || rooms.getTipeKasur().equals("") || rooms.getHarga() == 0) {
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong");
             return;
         }
 
-        if (validateNomorKamar(kamar.getNomorKamar())) {
+        if (validateNomorKamar(rooms.getNomorKamar())) {
             JOptionPane.showMessageDialog(null, "Nomor Kamar Sudah Tersedia");
             return;
         }
 
-        if (kamar.getTipeKamar().equals("Pilih") || kamar.getTipeKasur().equals("Pilih")) {
+        if (rooms.getTipeKamar().equals("Pilih") || rooms.getTipeKasur().equals("Pilih")) {
             JOptionPane.showMessageDialog(null, "Silakan Pilih Data");
             return;
         }
 
-        String queryAddKamar = "INSERT INTO rooms VALUES ('" + kamar.getNomorKamar() + "', '" + kamar.getTipeKamar() + "', '" + kamar.getTipeKasur() + "', '" + kamar.getHarga() + "', '" + "Available" + "')";
+        String queryAddKamar = "INSERT INTO rooms VALUES ('" + rooms.getNomorKamar() + "', '" + rooms.getTipeKamar() + "', '" + rooms.getTipeKasur() + "', '" + rooms.getHarga() + "', '" + "Available" + "')";
         Query.setData(queryAddKamar, "Sukses Tambah Kamar");
         setVisible(false);
         new ManageRooms().setVisible(true);

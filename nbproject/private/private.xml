@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/AdminHome.java</file>
-            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/Register.java</file>
-            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/Login.java</file>
-            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/query/CreateTable.java</file>
-            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/database/ConnectionDatabase.java</file>
-            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/database/Database.java</file>
             <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/SuperAdminHome.java</file>
+            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/AdminHome.java</file>
+            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/CheckIn.java</file>
+            <file>file:/D:/Project%20Kampus/HotelManagementSystem/src/com/hms/form/ManageRooms.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,6 +1,6 @@
 package com.hms.model;
 
-public class Kamar {
+public class Rooms {
 
     private String nomorKamar;
     private String tipeKamar;
