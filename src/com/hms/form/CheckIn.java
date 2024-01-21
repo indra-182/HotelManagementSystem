@@ -5,11 +5,12 @@
  */
 package com.hms.form;
 
-import com.hms.model.Rooms;
+
 import com.hms.query.Query;
 
 import javax.swing.*;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -21,6 +22,7 @@ public class CheckIn extends javax.swing.JFrame {
     /**
      * Creates new form CheckIn
      */
+
     public CheckIn() {
         initComponents();
         txtSetTanggalCheckIn.setEditable(false);
@@ -28,7 +30,13 @@ public class CheckIn extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
         txtSetTanggalCheckIn.setText(dateFormat.format(calendar.getTime()));
+        setDataRooms();
     }
+
+    String bed;
+    String roomType;
+    String roomNumber;
+    String price;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,9 +56,9 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         dropdownJenisKelamin = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSetId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtSetAlamat = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtSetTanggalCheckIn = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -63,6 +71,8 @@ public class CheckIn extends javax.swing.JFrame {
         btnBookRoom = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         dropdownSetNomorKamar = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        txtSetNegara = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(50, 118));
@@ -97,12 +107,12 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel5.setText("ID");
 
-        jTextField1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        txtSetId.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel6.setText("Alamat");
 
-        jTextField2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        txtSetAlamat.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel7.setText("Tanggal Check In");
@@ -145,6 +155,11 @@ public class CheckIn extends javax.swing.JFrame {
         txtSetHarga.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
 
         btnBookRoom.setText("Book Room");
+        btnBookRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookRoomActionPerformed(evt);
+            }
+        });
 
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +174,11 @@ public class CheckIn extends javax.swing.JFrame {
                 dropdownSetNomorKamarActionPerformed(evt);
             }
         });
+
+        jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jLabel12.setText("Negara");
+
+        txtSetNegara.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,10 +202,12 @@ public class CheckIn extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel6)
-                                        .addComponent(jTextField2)
+                                        .addComponent(txtSetAlamat)
                                         .addComponent(jLabel7)
                                         .addComponent(txtSetTanggalCheckIn)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtSetId, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                                        .addComponent(jLabel12)
+                                        .addComponent(txtSetNegara))
                                 .addGap(167, 167, 167)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
@@ -241,26 +263,33 @@ public class CheckIn extends javax.swing.JFrame {
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jLabel5)
                                                                 .addGap(18, 18, 18)
-                                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(txtSetId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(26, 26, 26)
                                                                 .addComponent(jLabel6)
                                                                 .addGap(18, 18, 18)
-                                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(txtSetAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(18, 18, 18)
-                                                                .addComponent(jLabel7)
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                        .addComponent(txtSetTanggalCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(dropdownSetNomorKamar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addComponent(jLabel12)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                                .addGap(22, 22, 22)
+                                                                                .addComponent(dropdownSetNomorKamar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(txtSetNegara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jLabel11)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel11)
+                                                        .addComponent(jLabel7))
                                                 .addGap(18, 18, 18)
-                                                .addComponent(txtSetHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(txtSetHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtSetTanggalCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnBookRoom)
                                         .addComponent(btnClear))
-                                .addContainerGap(520, Short.MAX_VALUE))
+                                .addContainerGap(516, Short.MAX_VALUE))
         );
 
         pack();
@@ -283,46 +312,77 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void dropdownSetNomorKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownSetNomorKamarActionPerformed
         // TODO add your handling code here:
-        setDataRooms();
+        roomNumber = (String) dropdownSetNomorKamar.getSelectedItem();
+        try {
+            ResultSet rs = Query.getData("select * from rooms where room_number = '" + roomNumber + "'");
+            while (rs.next()) {
+                txtSetHarga.setText(rs.getString(4));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_dropdownSetNomorKamarActionPerformed
 
     private void dropdownSetTipeKamarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dropdownSetTipeKamarItemStateChanged
         // TODO add your handling code here:
         setDataRooms();
-
     }//GEN-LAST:event_dropdownSetTipeKamarItemStateChanged
+
+    private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
+        // TODO add your handling code here:
+        int id = 1;
+        String name = txtSetNama.getText();
+        String email = txtSetEmail.getText();
+        String phoneNumber = txtSetTelepon.getText();
+        String gender = (String) dropdownJenisKelamin.getSelectedItem();
+        String idCard = txtSetId.getText();
+        String nationality = txtSetNegara.getText();
+        String address = txtSetAlamat.getText();
+        String checkInDate = txtSetTanggalCheckIn.getText();
+        String roomType = (String) dropdownSetTipeKamar.getSelectedItem();
+        String bedType = (String) dropdownSetTipeKasur.getSelectedItem();
+        String roomNumber = (String) dropdownSetNomorKamar.getSelectedItem();
+        String price = txtSetHarga.getText();
+
+        try {
+            String query = "SELECT MAX(id) FROM transactions";
+            ResultSet rs = Query.getData(query);
+            while (rs.next()) {
+                id = rs.getInt(1) + 1;
+                if (!price.equals("")) {
+                    String queryUpdateStatusRoom = "UPDATE rooms SET status = 'Booked' WHERE room_number = '" + roomNumber + "'";
+                    Query.setData(queryUpdateStatusRoom, "");
+                    String queryInsertData = "INSERT INTO transactions(id, name, email, phone_number, gender, id_card, nationality, address, check_in_date, room_type, bed, room_number, price) "
+                            + "VALUES ('" + id + "', '" + name + "', '" + email + "', '" + phoneNumber + "', '" + gender + "', '" + idCard + "', '" + nationality + "', '" + address + "', '" + checkInDate + "', '" + roomType + "', '" + bedType + "', '" + roomNumber + "', '" + price + "')";
+                    Query.setData(queryInsertData, "Kamar telah dipesan");
+                    setVisible(false);
+                    new CheckIn().setVisible(true);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_btnBookRoomActionPerformed
 
     private void dropdownSetTipeKamarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        setDataRooms();
     }
 
+
     public void setDataRooms() {
-        Rooms rooms = new Rooms();
-        rooms.setTipeKamar(dropdownSetTipeKamar.getSelectedItem().toString());
-        rooms.setTipeKasur(dropdownSetTipeKasur.getSelectedItem().toString());
+        dropdownSetNomorKamar.removeAllItems();
+        txtSetHarga.setText("");
+        bed = (String) dropdownSetTipeKasur.getSelectedItem();
+        roomType = (String) dropdownSetTipeKamar.getSelectedItem();
 
         try {
-            String query = "SELECT * FROM rooms WHERE room_type = '" + rooms.getTipeKamar() + "' AND bed = '" + rooms.getTipeKasur() + "' AND status = '" + "Available" + "'";
-            ResultSet rs = Query.getData(query);
-
-            DefaultComboBoxModel<String> roomModel = new DefaultComboBoxModel<>();
-            boolean hasAvailableRooms = false;
-
+            ResultSet rs = Query.getData("select * from rooms where room_type = '" + roomType + "' and bed = '" + bed + "' and status = 'Available'");
             while (rs.next()) {
-                hasAvailableRooms = true;
-                txtSetHarga.setText(rs.getString("price"));
-                roomModel.addElement(rs.getString("room_number"));
+                String roomNumber = rs.getString(1);
+                dropdownSetNomorKamar.addItem(roomNumber);
             }
-
-            // Kalo gada room yang Available, set dropdown Pilih & harga 0
-            if (!hasAvailableRooms) {
-                txtSetHarga.setText(""); // Clear the price field or handle it accordingly
-                roomModel.addElement("Pilih");
-            }
-
-            dropdownSetNomorKamar.setModel(roomModel);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -373,6 +433,7 @@ public class CheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -381,11 +442,12 @@ public class CheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtSetAlamat;
     private javax.swing.JTextField txtSetEmail;
     private javax.swing.JTextField txtSetHarga;
+    private javax.swing.JTextField txtSetId;
     private javax.swing.JTextField txtSetNama;
+    private javax.swing.JTextField txtSetNegara;
     private javax.swing.JTextField txtSetTanggalCheckIn;
     private javax.swing.JTextField txtSetTelepon;
     // End of variables declaration//GEN-END:variables
