@@ -5,10 +5,10 @@
  */
 package com.hms.database;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  * @author Mahadi Indra <indra-182 on github.com>

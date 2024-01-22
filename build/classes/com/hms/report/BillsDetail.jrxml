@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1cdf9782-9454-4436-8084-6cf84b2638e9">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="244"/>
+	<queryString language="SQL">
+		<![CDATA[select * from transactions;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="phone_number" class="java.lang.String"/>
+	<field name="nationality" class="java.lang.String"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="id_card" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="check_in_date" class="java.lang.String"/>
+	<field name="room_number" class="java.lang.String"/>
+	<field name="bed" class="java.lang.String"/>
+	<field name="room_type" class="java.lang.String"/>
+	<field name="price" class="java.lang.Integer"/>
+	<field name="duration_days" class="java.lang.Integer"/>
+	<field name="total_price" class="java.lang.String"/>
+	<field name="check_out_date" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="cf1c0301-c859-424c-9bea-6e6e781fc6e0"/>
+				<textElement textAlignment="Center">
+					<font size="44"/>
+				</textElement>
+				<text><![CDATA[DETAIL BILLS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="34" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="c8367f81-6f69-4d0d-bb72-9002bb85b3ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[ID Transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="34" y="0" width="79" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="899d9a21-4370-4c06-862d-3a5d1917d0d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Nama Pelanggan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="113" y="0" width="83" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="7851ed73-9872-4631-be32-00a94251d228"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Nomor KTP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="196" y="0" width="64" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="545f720a-9be7-48ca-a6a0-55cc2f27312a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Tanggal Check In]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="260" y="0" width="61" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="65603a47-392c-48cf-8130-5f760aff6fae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Tanggal Checkout]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="321" y="0" width="53" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="a80c4bc5-8c9c-4697-89e5-c535ddcb897d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Nomor Kamar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="374" y="0" width="68" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="9adc2f14-a31e-4b56-a5d6-8501990e933d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Biaya per Hari]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="442" y="0" width="46" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="d1b2146b-ce66-4d4b-ad19-2c8b2e26c16e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Durasi(Hari)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="488" y="0" width="67" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="210327b0-357d-4919-9bec-d935fc989bb3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Total Biaya]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="34" height="20" uuid="ba87b5d3-19e7-4e7e-82fa-667d27c16bfc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="0" width="79" height="20" uuid="7795e564-ce6a-4269-95fd-5bdc0a909f24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="0" width="83" height="20" uuid="f0dc2f33-13d3-48eb-a014-e9d210b06891"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_card}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="0" width="64" height="20" uuid="3797b59c-fc1f-4e05-927c-978d4c12921e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{check_in_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="61" height="20" uuid="b8d1340b-084d-44aa-b759-ecc37df4b7bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{check_out_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="0" width="53" height="20" uuid="5d0bfd39-e990-4cbf-9cf2-643c2334b446"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{room_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="0" width="68" height="20" uuid="a09a316b-f08f-487c-ba5e-bde1ff53beef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="0" width="46" height="20" uuid="9e0f5551-4b22-4982-ad7e-24c8a75bae1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{duration_days}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="0" width="67" height="20" uuid="bed184c5-3596-4d1d-8368-4925ef24521f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_price}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="468" y="12" width="87" height="22" uuid="f07114e9-e896-4e0d-8dfc-75c6f9120924"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TANGGAL CETAK]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="468" y="34" width="87" height="20" uuid="e2c2e908-187a-46a7-91c1-bef3d12dbc1a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date())]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="cdbfc369-d601-40cf-a893-437592e350b5"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

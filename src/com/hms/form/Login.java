@@ -8,7 +8,7 @@ package com.hms.form;
 import com.hms.model.Users;
 import com.hms.query.Query;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

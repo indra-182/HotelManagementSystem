@@ -58,7 +58,7 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtSetId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtSetAlamat = new javax.swing.JTextField();
+        txtSetNegara = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtSetTanggalCheckIn = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -72,19 +72,25 @@ public class CheckIn extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         dropdownSetNomorKamar = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        txtSetNegara = new javax.swing.JTextField();
+        txtSetAlamat = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(50, 118));
+        setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel2.setText("Nama");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 180, -1, -1));
 
         txtSetNama.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 216, 294, -1));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel3.setText("Email");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 266, -1, -1));
 
         txtSetEmail.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         txtSetEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -92,38 +98,50 @@ public class CheckIn extends javax.swing.JFrame {
                 txtSetEmailActionPerformed(evt);
             }
         });
+        getContentPane().add(txtSetEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 302, 294, -1));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel1.setText("No. Telepon");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 344, -1, -1));
 
         txtSetTelepon.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetTelepon, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 380, 294, -1));
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel4.setText("Jenis Kelamin");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 422, -1, -1));
 
         dropdownJenisKelamin.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        dropdownJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Pilih", "Laki-Laki", "Perempuan"}));
+        dropdownJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Laki-Laki", "Perempuan" }));
+        getContentPane().add(dropdownJenisKelamin, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 458, 294, -1));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel5.setText("ID");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 180, -1, -1));
 
         txtSetId.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetId, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 216, 350, -1));
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel6.setText("Alamat");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 344, -1, -1));
 
-        txtSetAlamat.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        txtSetNegara.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetNegara, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 302, 350, -1));
 
         jLabel7.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel7.setText("Tanggal Check In");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 431, -1, -1));
 
         txtSetTanggalCheckIn.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetTanggalCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 467, 350, -1));
 
         jLabel8.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel8.setText("Tipe Kamar");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 180, -1, -1));
 
         dropdownSetTipeKamar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        dropdownSetTipeKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Pilih", "Standar", "Superior", "Deluxe"}));
+        dropdownSetTipeKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Standar", "Superior", "Deluxe" }));
         dropdownSetTipeKamar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 dropdownSetTipeKamarItemStateChanged(evt);
@@ -134,25 +152,31 @@ public class CheckIn extends javax.swing.JFrame {
                 dropdownSetTipeKamarActionPerformed(evt);
             }
         });
+        getContentPane().add(dropdownSetTipeKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 216, 355, -1));
 
         jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel9.setText("Tipe Kasur");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 266, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel10.setText("Nomor Kamar");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 344, -1, -1));
 
         dropdownSetTipeKasur.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        dropdownSetTipeKasur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Pilih", "Single Bed", "Twin Bed", "Double Bed"}));
+        dropdownSetTipeKasur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Single Bed", "Twin Bed", "Double Bed" }));
         dropdownSetTipeKasur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropdownSetTipeKasurActionPerformed(evt);
             }
         });
+        getContentPane().add(dropdownSetTipeKasur, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 302, 355, -1));
 
         jLabel11.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel11.setText("Harga");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 431, -1, -1));
 
         txtSetHarga.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 467, 355, -1));
 
         btnBookRoom.setText("Book Room");
         btnBookRoom.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +184,7 @@ public class CheckIn extends javax.swing.JFrame {
                 btnBookRoomActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBookRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 546, -1, -1));
 
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +192,7 @@ public class CheckIn extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1548, 546, -1, -1));
 
         dropdownSetNomorKamar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         dropdownSetNomorKamar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,123 +200,27 @@ public class CheckIn extends javax.swing.JFrame {
                 dropdownSetNomorKamarActionPerformed(evt);
             }
         });
+        getContentPane().add(dropdownSetNomorKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 384, 355, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel12.setText("Negara");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 266, -1, -1));
 
-        txtSetNegara.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        txtSetAlamat.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(txtSetAlamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 384, 350, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(193, 193, 193)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtSetNama)
-                                        .addComponent(txtSetEmail)
-                                        .addComponent(txtSetTelepon)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel4)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel3)
-                                                        .addComponent(jLabel2))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(dropdownJenisKelamin, 0, 284, Short.MAX_VALUE))
-                                .addGap(258, 258, 258)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6)
-                                        .addComponent(txtSetAlamat)
-                                        .addComponent(jLabel7)
-                                        .addComponent(txtSetTanggalCheckIn)
-                                        .addComponent(txtSetId, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                                        .addComponent(jLabel12)
-                                        .addComponent(txtSetNegara))
-                                .addGap(167, 167, 167)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnBookRoom)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnClear))
-                                        .addComponent(dropdownSetNomorKamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(dropdownSetTipeKasur, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel9)
-                                                        .addComponent(jLabel10)
-                                                        .addComponent(jLabel11)
-                                                        .addComponent(jLabel8)
-                                                        .addComponent(txtSetHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(dropdownSetTipeKamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(342, 342, 342))
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(180, 180, 180)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtSetNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(26, 26, 26)
-                                                .addComponent(jLabel3)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtSetEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtSetTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel4)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(dropdownJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jLabel8)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(dropdownSetTipeKamar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(26, 26, 26)
-                                                                .addComponent(jLabel9)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(dropdownSetTipeKasur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(jLabel10))
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jLabel5)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(txtSetId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(26, 26, 26)
-                                                                .addComponent(jLabel6)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(txtSetAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(jLabel12)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(22, 22, 22)
-                                                                                .addComponent(dropdownSetNomorKamar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(txtSetNegara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel11)
-                                                        .addComponent(jLabel7))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(txtSetHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtSetTanggalCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnBookRoom)
-                                        .addComponent(btnClear))
-                                .addContainerGap(516, Short.MAX_VALUE))
-        );
+        btnBack.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/logout.jpg"))); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/mainbg.jpg"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -365,6 +295,12 @@ public class CheckIn extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBookRoomActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new AdminHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
     private void dropdownSetTipeKamarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -424,6 +360,7 @@ public class CheckIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBookRoom;
     private javax.swing.JButton btnClear;
     private javax.swing.JComboBox<String> dropdownJenisKelamin;
@@ -434,6 +371,7 @@ public class CheckIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

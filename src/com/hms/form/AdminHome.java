@@ -5,10 +5,9 @@
  */
 package com.hms.form;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
- *
  * @author Mahadi Indra <indra-182 on github.com>
  */
 public class AdminHome extends javax.swing.JFrame {
@@ -30,34 +29,45 @@ public class AdminHome extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnToManageRooms = new javax.swing.JButton();
+        btnToCheckIn = new javax.swing.JButton();
+        btnToCheckOut = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/admin.jpg"))); // NOI18N
         jLabel1.setText("ADMIN");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
-        jButton2.setText("Manage Rooms");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnToManageRooms.setText("Manage Rooms");
+        btnToManageRooms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnToManageRoomsActionPerformed(evt);
             }
         });
+        getContentPane().add(btnToManageRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
 
-        jButton3.setText("Check In");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnToCheckIn.setText("Check In");
+        btnToCheckIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnToCheckInActionPerformed(evt);
             }
         });
+        getContentPane().add(btnToCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, -1, -1));
 
-        jButton4.setText("Check Out");
+        btnToCheckOut.setText("Check Out");
+        btnToCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToCheckOutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnToCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 80, -1, -1));
 
         btnLogout.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/logout.jpg"))); // NOI18N
@@ -67,6 +77,7 @@ public class AdminHome extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 60, -1, -1));
 
         btnExit.setFont(new java.awt.Font("Rockwell", 1, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/close.jpg"))); // NOI18N
@@ -76,39 +87,11 @@ public class AdminHome extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1710, 60, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(99, 99, 99)
-                .addComponent(jButton2)
-                .addGap(272, 272, 272)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(377, 377, 377)
-                .addComponent(btnLogout)
-                .addGap(112, 112, 112)
-                .addComponent(btnExit)
-                .addGap(40, 40, 40))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(btnLogout)
-                    .addComponent(btnExit)
-                    .addComponent(jLabel1))
-                .addContainerGap(971, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/mainbg.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,16 +113,21 @@ public class AdminHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnToManageRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToManageRoomsActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         new ManageRooms().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnToManageRoomsActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnToCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToCheckInActionPerformed
         // TODO add your handling code here:
         new CheckIn().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnToCheckInActionPerformed
+
+    private void btnToCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToCheckOutActionPerformed
+        // TODO add your handling code here:
+        new CheckOut().setVisible(true);
+    }//GEN-LAST:event_btnToCheckOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,7 +136,7 @@ public class AdminHome extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -179,9 +167,10 @@ public class AdminHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnToCheckIn;
+    private javax.swing.JButton btnToCheckOut;
+    private javax.swing.JButton btnToManageRooms;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
