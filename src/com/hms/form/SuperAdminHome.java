@@ -162,8 +162,8 @@ public class SuperAdminHome extends javax.swing.JFrame {
                         result.getString("role")
                 });
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
 
     }//GEN-LAST:event_formComponentShown
@@ -185,7 +185,7 @@ public class SuperAdminHome extends javax.swing.JFrame {
                 });
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnCariActionPerformed
 
@@ -234,10 +234,8 @@ public class SuperAdminHome extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SuperAdminHome().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new SuperAdminHome().setVisible(true);
         });
     }
 

@@ -33,11 +33,6 @@ public class CheckIn extends javax.swing.JFrame {
         setDataRooms();
     }
 
-    String bed;
-    String roomType;
-    String roomNumber;
-    String price;
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -242,14 +237,15 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void dropdownSetNomorKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownSetNomorKamarActionPerformed
         // TODO add your handling code here:
+        String roomNumber;
         roomNumber = (String) dropdownSetNomorKamar.getSelectedItem();
         try {
             ResultSet rs = Query.getData("select * from rooms where room_number = '" + roomNumber + "'");
             while (rs.next()) {
                 txtSetHarga.setText(rs.getString(4));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_dropdownSetNomorKamarActionPerformed
 
@@ -260,7 +256,7 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
         // TODO add your handling code here:
-        int id = 1;
+        int id;
         String name = txtSetNama.getText();
         String email = txtSetEmail.getText();
         String phoneNumber = txtSetTelepon.getText();
@@ -289,7 +285,7 @@ public class CheckIn extends javax.swing.JFrame {
                     new CheckIn().setVisible(true);
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
@@ -306,9 +302,11 @@ public class CheckIn extends javax.swing.JFrame {
     }
 
 
-    public void setDataRooms() {
+    private void setDataRooms() {
         dropdownSetNomorKamar.removeAllItems();
         txtSetHarga.setText("");
+        String bed;
+        String roomType;
         bed = (String) dropdownSetTipeKasur.getSelectedItem();
         roomType = (String) dropdownSetTipeKamar.getSelectedItem();
 
@@ -352,10 +350,8 @@ public class CheckIn extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CheckIn().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CheckIn().setVisible(true);
         });
     }
 

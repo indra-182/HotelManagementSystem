@@ -216,7 +216,6 @@ public class ForgotPassword extends javax.swing.JFrame {
             txtSetSecurityQuestion.setText(getSecurityQuestion(users.getEmail()));
             txtSetEmail.setEditable(false);
             txtSetSecurityQuestion.setEditable(false);
-            return;
         }
     }//GEN-LAST:event_btnCariActionPerformed
 
@@ -235,7 +234,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 securityQuestion = resultSet.getString("security_question");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
         return securityQuestion;
     }
@@ -248,7 +247,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 return true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
         return false;
     }
@@ -282,10 +281,8 @@ public class ForgotPassword extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ForgotPassword().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ForgotPassword().setVisible(true);
         });
     }
 

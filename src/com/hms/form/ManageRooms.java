@@ -201,7 +201,7 @@ public class ManageRooms extends javax.swing.JFrame {
                 model.addRow(new Object[]{rs.getString("room_number"), rs.getString("room_type"), rs.getString("bed"), rs.getString("price"), rs.getString("status")});
             }
             tableKamar.setModel(model);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
@@ -215,7 +215,7 @@ public class ManageRooms extends javax.swing.JFrame {
                 return true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
         return false;
     }
@@ -248,10 +248,8 @@ public class ManageRooms extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ManageRooms().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ManageRooms().setVisible(true);
         });
     }
 

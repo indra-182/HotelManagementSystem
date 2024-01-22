@@ -11,6 +11,7 @@ import com.hms.query.Query;
 import javax.swing.*;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -236,7 +237,7 @@ public class Register extends javax.swing.JFrame {
                 return count > 0;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
         return false;
     }
@@ -278,7 +279,7 @@ public class Register extends javax.swing.JFrame {
             }
             //return encrypted value
             return encryptionValue.toString();
-        } catch (Exception ex) {
+        } catch (NoSuchAlgorithmException ex) {
             return ex.getMessage();
         }
     }
@@ -312,10 +313,8 @@ public class Register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Register().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Register().setVisible(true);
         });
     }
 

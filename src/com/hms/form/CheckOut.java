@@ -7,13 +7,16 @@ package com.hms.form;
 
 import com.hms.database.ConnectionDatabase;
 import com.hms.query.Query;
+import java.awt.HeadlessException;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -126,7 +129,7 @@ public class CheckOut extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Transaction", "Phone Number", "Nationality", "Gender", "Email", "Address", "Bed Type", "Room Type", "Price", "Duration"
+                "ID Transaction", "Phone Number", "Nationality", "Gender", "Email", "Address", "Bed Type", "Room Type", "Price"
             }
         ));
         jScrollPane1.setViewportView(tableDataTransactions);
@@ -223,7 +226,7 @@ public class CheckOut extends javax.swing.JFrame {
             while (rs.next()) {
                 model.addRow(new Object[]{rs.getString("id"), rs.getString("phone_number"), rs.getString("nationality"), rs.getString("gender"), rs.getString("email"), rs.getString("address"), rs.getString("bed"), rs.getString("room_type"), rs.getString("price"), rs.getString("duration_days")});
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_formComponentShown
@@ -269,7 +272,7 @@ public class CheckOut extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Room not available");
                 }
             }
-        } catch (Exception e) {
+        } catch (HeadlessException | NumberFormatException | SQLException | ParseException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnCariActionPerformed
@@ -293,6 +296,8 @@ public class CheckOut extends javax.swing.JFrame {
         int choose = JOptionPane.showConfirmDialog(null, "Do you want to print bill?", "Print Bill", JOptionPane.YES_NO_OPTION);
         if (choose == 0) {
             printBills();
+            setVisible(false);
+            new CheckOut().setVisible(true);
         } else {
             setVisible(false);
             new CheckOut().setVisible(true);
@@ -343,10 +348,8 @@ public class CheckOut extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CheckOut().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CheckOut().setVisible(true);
         });
     }
 
