@@ -6,10 +6,12 @@
 package com.hms.query;
 
 import com.hms.database.ConnectionDatabase;
+import java.awt.HeadlessException;
 
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -18,8 +20,8 @@ import java.sql.Statement;
 public class Query {
 
     public static void setData(String query, String message) {
-        Connection connection = null;
-        Statement statement = null;
+        Connection connection;
+        Statement statement;
         try {
             connection = ConnectionDatabase.connect();
             statement = connection.createStatement();
@@ -27,15 +29,8 @@ public class Query {
             if (!message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, message);
             }
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-        } finally {
-            try {
-                connection.close();
-                statement.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -47,8 +42,8 @@ public class Query {
             connection = ConnectionDatabase.connect();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
         return resultSet;
     }

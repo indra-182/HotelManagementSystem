@@ -113,15 +113,15 @@ public class CheckOut extends javax.swing.JFrame {
         getContentPane().add(btnCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 110, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel2.setText("Customer Name");
+        jLabel2.setText("Nama Tamu");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel3.setText("Check In Date");
+        jLabel3.setText("Tanggal Check In");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel4.setText("Check Out Date");
+        jLabel4.setText("Tanggal Check Out");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, -1, -1));
 
         tableDataTransactions.setModel(new javax.swing.table.DefaultTableModel(
@@ -151,15 +151,15 @@ public class CheckOut extends javax.swing.JFrame {
         getContentPane().add(txtSetCheckOutDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 290, 300, -1));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel5.setText("ID Card");
+        jLabel5.setText("Nomor Kartu Identitas");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel6.setText("Duration (Days)");
+        jLabel6.setText("Durasi (Hari)");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel7.setText("Total Price");
+        jLabel7.setText("Total Biaya");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 350, -1, -1));
 
         txtSetIdCard.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
@@ -177,13 +177,13 @@ public class CheckOut extends javax.swing.JFrame {
         getContentPane().add(txtSetTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 400, 300, -1));
 
         btnCheckOut.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        btnCheckOut.setText("Check Out");
+        btnCheckOut.setText("Check Out Kamar");
         btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckOutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 290, -1, -1));
+        getContentPane().add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 290, -1, -1));
 
         btnClear.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         btnClear.setText("Clear");

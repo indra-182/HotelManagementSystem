@@ -118,7 +118,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         getContentPane().add(btnCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 390, -1, -1));
 
         btnSave.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnSave.setText("Save");
+        btnSave.setText("Simpan");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -127,7 +127,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 720, -1, -1));
 
         btnLogin.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnLogin.setText("Login");
+        btnLogin.setText("Masuk");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -136,7 +136,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 720, -1, -1));
 
         btnRegister.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnRegister.setText("Register");
+        btnRegister.setText("Daftar");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);

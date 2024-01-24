@@ -173,7 +173,7 @@ public class CheckIn extends javax.swing.JFrame {
         txtSetHarga.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         getContentPane().add(txtSetHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 467, 355, -1));
 
-        btnBookRoom.setText("Book Room");
+        btnBookRoom.setText("Booking Kamar");
         btnBookRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookRoomActionPerformed(evt);

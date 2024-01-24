@@ -76,7 +76,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(txtSetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 600, -1));
 
         btnLogin.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        btnLogin.setText("Login");
+        btnLogin.setText("Masuk");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -85,7 +85,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 640, -1, -1));
 
         btnRegister.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        btnRegister.setText("Register");
+        btnRegister.setText("Daftar");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);

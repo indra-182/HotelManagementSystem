@@ -107,7 +107,7 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(txtQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, -1, -1));
 
         txtSetQuestion.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        txtSetQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Pilih Pertanyaan", "Apa buah favoritku?", "Dimana aku lahir?", "Angka favoritku?"}));
+        txtSetQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Pertanyaan", "Apa buah favoritku?", "Dimana aku lahir?", "Angka favoritku?" }));
         getContentPane().add(txtSetQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 510, 370, -1));
 
         txtAnswer.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -126,7 +126,7 @@ public class Register extends javax.swing.JFrame {
         btnRegister.setBackground(new java.awt.Color(0, 102, 204));
         btnRegister.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Register");
+        btnRegister.setText("Daftar");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
@@ -148,7 +148,7 @@ public class Register extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(0, 102, 204));
         btnLogin.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Login");
+        btnLogin.setText("Masuk");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);

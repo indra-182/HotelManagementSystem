@@ -4,11 +4,8 @@ public class Rooms {
 
     private String nomorKamar;
     private String tipeKamar;
-
     private String tipeKasur;
-
     private int harga;
-
     private String status;
 
     public String getNomorKamar() {

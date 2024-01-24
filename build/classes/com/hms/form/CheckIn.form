@@ -336,7 +336,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBookRoom">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Book Room"/>
+        <Property name="text" type="java.lang.String" value="Booking Kamar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookRoomActionPerformed"/>

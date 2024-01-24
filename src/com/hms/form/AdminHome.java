@@ -45,7 +45,7 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel1.setText("ADMIN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
-        btnToManageRooms.setText("Manage Rooms");
+        btnToManageRooms.setText("Kelola Kamar");
         btnToManageRooms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnToManageRoomsActionPerformed(evt);
