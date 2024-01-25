@@ -170,7 +170,7 @@ public class ManageRooms extends javax.swing.JFrame {
         rooms.setTipeKasur(txtSetKasur.getSelectedItem().toString());
         rooms.setHarga(Integer.parseInt(txtSetHarga.getText()));
 
-        if (rooms.getNomorKamar().equals("") || rooms.getTipeKamar().equals("") || rooms.getTipeKasur().equals("") || rooms.getHarga() == 0) {
+        if (rooms.getNomorKamar().isEmpty() || rooms.getTipeKamar().isEmpty() || rooms.getTipeKasur().isEmpty() || rooms.getHarga() == 0) {
             JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong");
             return;
         }

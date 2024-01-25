@@ -275,7 +275,7 @@ public class CheckIn extends javax.swing.JFrame {
             ResultSet rs = Query.getData(query);
             while (rs.next()) {
                 id = rs.getInt(1) + 1;
-                if (!price.equals("")) {
+                if (!price.isEmpty()) {
                     String queryUpdateStatusRoom = "UPDATE rooms SET status = 'Booked' WHERE room_number = '" + roomNumber + "'";
                     Query.setData(queryUpdateStatusRoom, "");
                     String queryInsertData = "INSERT INTO transactions(id, name, email, phone_number, gender, id_card, nationality, address, check_in_date, room_type, bed, room_number, price) "
