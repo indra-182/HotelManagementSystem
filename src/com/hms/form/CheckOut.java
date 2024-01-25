@@ -140,11 +140,6 @@ public class CheckOut extends javax.swing.JFrame {
         getContentPane().add(txtSetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 300, -1));
 
         txtSetCheckInDate.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        txtSetCheckInDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSetCheckInDateActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtSetCheckInDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 300, -1));
 
         txtSetCheckOutDate.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
@@ -231,10 +226,6 @@ public class CheckOut extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formComponentShown
 
-    private void txtSetCheckInDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetCheckInDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetCheckInDateActionPerformed
-
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
         roomNumber = txtCariKamar.getText();
@@ -318,39 +309,6 @@ public class CheckOut extends javax.swing.JFrame {
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    private static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CheckOut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CheckOut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CheckOut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CheckOut.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new CheckOut().setVisible(true);
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

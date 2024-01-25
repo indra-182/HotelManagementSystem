@@ -99,11 +99,6 @@ public class ManageRooms extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1335, 153, -1, -1));
 
         txtSetNomorKamar.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
-        txtSetNomorKamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSetNomorKamarActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtSetNomorKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1335, 193, 400, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
@@ -157,10 +152,6 @@ public class ManageRooms extends javax.swing.JFrame {
         setVisible(false);
         new AdminHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void txtSetNomorKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetNomorKamarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetNomorKamarActionPerformed
 
     private void btnAddRuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRuanganActionPerformed
         // TODO add your handling code here:
@@ -218,39 +209,6 @@ public class ManageRooms extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         return false;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    private static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageRooms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageRooms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageRooms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageRooms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new ManageRooms().setVisible(true);
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

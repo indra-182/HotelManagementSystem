@@ -5,7 +5,6 @@
  */
 package com.hms.form;
 
-
 import com.hms.query.Query;
 
 import javax.swing.*;
@@ -22,7 +21,6 @@ public class CheckIn extends javax.swing.JFrame {
     /**
      * Creates new form CheckIn
      */
-
     public CheckIn() {
         initComponents();
         txtSetTanggalCheckIn.setEditable(false);
@@ -88,11 +86,6 @@ public class CheckIn extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 266, -1, -1));
 
         txtSetEmail.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        txtSetEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSetEmailActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtSetEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 302, 294, -1));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
@@ -137,16 +130,6 @@ public class CheckIn extends javax.swing.JFrame {
 
         dropdownSetTipeKamar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         dropdownSetTipeKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Standar", "Superior", "Deluxe" }));
-        dropdownSetTipeKamar.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                dropdownSetTipeKamarItemStateChanged(evt);
-            }
-        });
-        dropdownSetTipeKamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dropdownSetTipeKamarActionPerformed(evt);
-            }
-        });
         getContentPane().add(dropdownSetTipeKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 216, 355, -1));
 
         jLabel9.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
@@ -220,10 +203,6 @@ public class CheckIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSetEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetEmailActionPerformed
-
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
         setVisible(false);
@@ -248,11 +227,6 @@ public class CheckIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_dropdownSetNomorKamarActionPerformed
-
-    private void dropdownSetTipeKamarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dropdownSetTipeKamarItemStateChanged
-        // TODO add your handling code here:
-        setDataRooms();
-    }//GEN-LAST:event_dropdownSetTipeKamarItemStateChanged
 
     private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
         // TODO add your handling code here:
@@ -297,11 +271,6 @@ public class CheckIn extends javax.swing.JFrame {
         new AdminHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void dropdownSetTipeKamarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-
     private void setDataRooms() {
         dropdownSetNomorKamar.removeAllItems();
         txtSetHarga.setText("");
@@ -319,40 +288,6 @@ public class CheckIn extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }
-
-
-    /**
-     * @param args the command line arguments
-     */
-    private static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CheckIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new CheckIn().setVisible(true);
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
