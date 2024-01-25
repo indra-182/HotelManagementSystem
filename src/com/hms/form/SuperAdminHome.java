@@ -41,7 +41,6 @@ public class SuperAdminHome extends javax.swing.JFrame {
         txtSetCari = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableData = new javax.swing.JTable();
-        btnCari = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,6 +88,11 @@ public class SuperAdminHome extends javax.swing.JFrame {
                 txtSetCariActionPerformed(evt);
             }
         });
+        txtSetCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSetCariKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtSetCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, 640, -1));
 
         tableData.setModel(new javax.swing.table.DefaultTableModel(
@@ -107,15 +111,6 @@ public class SuperAdminHome extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableData);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 1430, 540));
-
-        btnCari.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnCari.setText("Cari");
-        btnCari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCariActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 270, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hms/images/mainbg.jpg"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(2300, 1185));
@@ -168,27 +163,6 @@ public class SuperAdminHome extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formComponentShown
 
-    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-        // TODO add your handling code here:
-        String queryCari = "SELECT * FROM users WHERE name LIKE '%" + txtSetCari.getText() + "%' OR email LIKE '%" + txtSetCari.getText() + "%'";
-        ResultSet result = Query.getData(queryCari);
-        DefaultTableModel model = (DefaultTableModel) tableData.getModel();
-        model.setRowCount(0);
-        try {
-            while (result.next()) {
-                System.out.println(result.getString("email"));
-                model.addRow(new Object[]{
-                    result.getString("email"),
-                    result.getString("name"),
-                    result.getString("status"),
-                    result.getString("role")
-                });
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_btnCariActionPerformed
-
     private void tableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataMouseClicked
         // TODO add your handling code here:
         int index = tableData.getSelectedRow();
@@ -206,8 +180,29 @@ public class SuperAdminHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tableDataMouseClicked
 
+    private void txtSetCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSetCariKeyReleased
+        // TODO add your handling code here:
+        String formatInput = txtSetCari.getText().toUpperCase();
+        String queryCari = "SELECT * FROM users WHERE UPPER(name) LIKE '%" + formatInput + "%' OR UPPER(email) LIKE '%" + formatInput + "%'";
+        ResultSet result = Query.getData(queryCari);
+        DefaultTableModel model = (DefaultTableModel) tableData.getModel();
+        model.setRowCount(0);
+        try {
+            while (result.next()) {
+                System.out.println(result.getString("email"));
+                model.addRow(new Object[]{
+                    result.getString("email"),
+                    result.getString("name"),
+                    result.getString("status"),
+                    result.getString("role")
+                });
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_txtSetCariKeyReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCari;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
