@@ -170,6 +170,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         users.setEmail(txtSetEmail.getText());
         users.setSecurityQuestion(txtSetSecurityQuestion.getText());
         users.setAnswer(txtSetAnswer.getText());
+        
         users.setPassword(String.valueOf(txtSetPassword.getPassword()));
 
         if (users.getEmail().isEmpty() || users.getSecurityQuestion().isEmpty() || users.getAnswer().isEmpty() || users.getPassword().isEmpty()) {
@@ -186,8 +187,11 @@ public class ForgotPassword extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Jawaban Anda salah");
             return;
         }
+        
 
         if (validateAllData(users) && users.getPassword().equals(String.valueOf(txtSetPasswordAgain.getPassword()))) {
+            String encryptedPassword = Register.encryptPass(String.valueOf(txtSetPassword.getPassword()));
+            users.setPassword(encryptedPassword);
             String query = "UPDATE users SET password = '" + users.getPassword() + "' WHERE email = '" + users.getEmail() + "'";
             Query.setData(query, "Sukses Memperbarui Password");
             setVisible(false);
@@ -256,7 +260,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    private static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

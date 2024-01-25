@@ -27,7 +27,6 @@ public class Register extends javax.swing.JFrame {
         initComponents();
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,11 +87,6 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, -1, -1));
 
         txtSetNama.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        txtSetNama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSetNamaActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtSetNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 240, 370, -1));
 
         txtSetEmail.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -200,15 +194,19 @@ public class Register extends javax.swing.JFrame {
             users.setRole("Admin");
             users.setStatus("Pending");
         }
+        
+        
 
         if (validateEmail(users.getEmail())) {
             JOptionPane.showMessageDialog(null, "Email Sudah Terdaftar");
-        } else {
-            String queryRegister = "INSERT INTO users(email,name, password, security_question, answer, status, role) VALUES ('" + users.getEmail() + "', '" + users.getName() + "', '" + users.getPassword() + "', '" + users.getSecurityQuestion() + "', '" + users.getAnswer() + "', '" + users.getStatus() + "', '" + users.getRole() + "')";
-            Query.setData(queryRegister, "Register Berhasil");
-            setVisible(false);
-            new Register().setVisible(true);
+            return;
         }
+
+        String queryRegister = "INSERT INTO users(email,name, password, security_question, answer, status, role) VALUES ('" + users.getEmail() + "', '" + users.getName() + "', '" + users.getPassword() + "', '" + users.getSecurityQuestion() + "', '" + users.getAnswer() + "', '" + users.getStatus() + "', '" + users.getRole() + "')";
+        Query.setData(queryRegister, "Register Berhasil");
+        setVisible(false);
+        new Register().setVisible(true);
+
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnLupaPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaPasswordActionPerformed
@@ -217,16 +215,11 @@ public class Register extends javax.swing.JFrame {
         new ForgotPassword().setVisible(true);
     }//GEN-LAST:event_btnLupaPasswordActionPerformed
 
-    private void txtSetNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetNamaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetNamaActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         new Login().setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
-
 
     public static boolean validateEmail(String email) {
         String queryCheckEmail = "SELECT COUNT(*) FROM users WHERE email = '" + email + "'";
@@ -242,7 +235,6 @@ public class Register extends javax.swing.JFrame {
         return false;
     }
 
-
     private boolean validateFields() {
         String name = txtSetNama.getText();
         String email = txtSetEmail.getText();
@@ -250,7 +242,7 @@ public class Register extends javax.swing.JFrame {
         String securityQuestions = txtSetQuestion.getSelectedItem().toString();
         String answer = txtSetAnswer.getText();
 
-        if (securityQuestions.equals("Pilih Pilihan")) {
+        if (securityQuestions.equals("Pilih Pertanyaan")) {
             JOptionPane.showMessageDialog(null, "Silakan Pilih Pilihan Pertanyaan Keamanan Terlebih Dahulu");
             return false;
         }
@@ -259,17 +251,19 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Field Tidak Boleh Kosong");
             return false;
         }
+        
+        if  (!email.contains("@")) {
+            JOptionPane.showMessageDialog(null, "Format Email Tidak Sesuai");
+            return false;
+        }
         return true;
     }
 
     public static String encryptPass(String password) {
         try {
-            //retrieve instance of the encryptor of SHA-256
             MessageDigest digestor = MessageDigest.getInstance("SHA-256");
-            //retrieve bytes to encrypt
             byte[] encodedhash = digestor.digest(password.getBytes(StandardCharsets.UTF_8));
             StringBuilder encryptionValue = new StringBuilder(2 * encodedhash.length);
-            //perform encryption
             for (byte b : encodedhash) {
                 String hexVal = Integer.toHexString(0xff & b);
                 if (hexVal.length() == 1) {
@@ -277,18 +271,16 @@ public class Register extends javax.swing.JFrame {
                 }
                 encryptionValue.append(hexVal);
             }
-            //return encrypted value
             return encryptionValue.toString();
         } catch (NoSuchAlgorithmException ex) {
             return ex.getMessage();
         }
     }
 
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    private static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

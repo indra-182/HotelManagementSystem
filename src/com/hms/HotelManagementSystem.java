@@ -5,6 +5,8 @@
  */
 package com.hms;
 
+import com.hms.form.Login;
+
 /**
  *
  * @author Mahadi Indra <indra-182 on github.com>
@@ -16,6 +18,8 @@ public class HotelManagementSystem {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Login start = new Login();
+        start.setVisible(true);
     }
-    
+
 }
