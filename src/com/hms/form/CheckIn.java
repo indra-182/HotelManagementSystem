@@ -173,6 +173,11 @@ public class CheckIn extends javax.swing.JFrame {
         getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1548, 546, -1, -1));
 
         dropdownSetNomorKamar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        dropdownSetNomorKamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropdownSetNomorKamarActionPerformed(evt);
+            }
+        });
         getContentPane().add(dropdownSetNomorKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 384, 355, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
@@ -251,6 +256,20 @@ public class CheckIn extends javax.swing.JFrame {
         setVisible(false);
         new AdminHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void dropdownSetNomorKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownSetNomorKamarActionPerformed
+        // TODO add your handling code here:
+        String roomNumber;
+        roomNumber = (String) dropdownSetNomorKamar.getSelectedItem();
+        try {
+            ResultSet rs = Query.getData("select * from rooms where room_number = '" + roomNumber + "'");
+            while (rs.next()) {
+                txtSetHarga.setText(rs.getString(4));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_dropdownSetNomorKamarActionPerformed
 
     private void setNumberRooms() {
         dropdownSetNomorKamar.removeAllItems();

@@ -80,7 +80,7 @@ public class ManageRooms extends javax.swing.JFrame {
 
         tableKamar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Nomor Kamar", "Tipe Kamar", "Tipe Kasur", "Harga", "Status"
@@ -160,15 +160,10 @@ public class ManageRooms extends javax.swing.JFrame {
         rooms.setTipeKamar(txtSetTipeKamar.getSelectedItem().toString());
         rooms.setTipeKasur(txtSetKasur.getSelectedItem().toString());
         rooms.setHarga(Integer.parseInt(txtSetHarga.getText()));
-
-        if (rooms.getNomorKamar().isEmpty() || rooms.getTipeKamar().isEmpty() || rooms.getTipeKasur().isEmpty() || rooms.getHarga() == 0) {
-            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong");
-            return;
-        }
-
+    
         if (validateNomorKamar(rooms.getNomorKamar())) {
-            JOptionPane.showMessageDialog(null, "Nomor Kamar Tersedia");
-            return;
+            JOptionPane.showMessageDialog(null, "Nomor Kamar Sudah Ada, Silahkan Ganti Nomor Kamar");
+            return; 
         }
 
         if (rooms.getTipeKamar().equals("Pilih") || rooms.getTipeKasur().equals("Pilih")) {

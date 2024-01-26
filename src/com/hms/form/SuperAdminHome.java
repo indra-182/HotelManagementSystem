@@ -83,11 +83,6 @@ public class SuperAdminHome extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, 30));
 
         txtSetCari.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        txtSetCari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSetCariActionPerformed(evt);
-            }
-        });
         txtSetCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSetCariKeyReleased(evt);
@@ -120,10 +115,6 @@ public class SuperAdminHome extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtSetCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetCariActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetCariActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:

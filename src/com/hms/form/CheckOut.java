@@ -284,7 +284,6 @@ public class CheckOut extends javax.swing.JFrame {
         String queryCheckOut = "UPDATE transactions SET check_out_date = '" + checkOutDate + "', duration_days = '" + duration + "', total_price = '" + totalPrice + "' WHERE id = '" + id + "'";
         Query.setData(queryCheckOut, "CheckOut Success");
 
-
         int choose = JOptionPane.showConfirmDialog(null, "Do you want to print bill?", "Print Bill", JOptionPane.YES_NO_OPTION);
         if (choose == 0) {
             printBills();
