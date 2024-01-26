@@ -28,7 +28,7 @@ public class CheckIn extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
         txtSetTanggalCheckIn.setText(dateFormat.format(calendar.getTime()));
-        setDataRooms();
+        setNumberRooms();
     }
 
     /**
@@ -173,11 +173,6 @@ public class CheckIn extends javax.swing.JFrame {
         getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1548, 546, -1, -1));
 
         dropdownSetNomorKamar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        dropdownSetNomorKamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dropdownSetNomorKamarActionPerformed(evt);
-            }
-        });
         getContentPane().add(dropdownSetNomorKamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 384, 355, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
@@ -211,26 +206,12 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void dropdownSetTipeKasurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownSetTipeKasurActionPerformed
         // TODO add your handling code here:
-        setDataRooms();
+        setNumberRooms();
     }//GEN-LAST:event_dropdownSetTipeKasurActionPerformed
-
-    private void dropdownSetNomorKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownSetNomorKamarActionPerformed
-        // TODO add your handling code here:
-        String roomNumber;
-        roomNumber = (String) dropdownSetNomorKamar.getSelectedItem();
-        try {
-            ResultSet rs = Query.getData("select * from rooms where room_number = '" + roomNumber + "'");
-            while (rs.next()) {
-                txtSetHarga.setText(rs.getString(4));
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_dropdownSetNomorKamarActionPerformed
 
     private void btnBookRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookRoomActionPerformed
         // TODO add your handling code here:
-        int id;
+        int id = 0;
         String name = txtSetNama.getText();
         String email = txtSetEmail.getText();
         String phoneNumber = txtSetTelepon.getText();
@@ -271,7 +252,7 @@ public class CheckIn extends javax.swing.JFrame {
         new AdminHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void setDataRooms() {
+    private void setNumberRooms() {
         dropdownSetNomorKamar.removeAllItems();
         txtSetHarga.setText("");
         String bed;
@@ -282,7 +263,7 @@ public class CheckIn extends javax.swing.JFrame {
         try {
             ResultSet rs = Query.getData("select * from rooms where room_type = '" + roomType + "' and bed = '" + bed + "' and status = 'Available'");
             while (rs.next()) {
-                String roomNumber = rs.getString(1);
+                String roomNumber = rs.getString("room_number");
                 dropdownSetNomorKamar.addItem(roomNumber);
             }
         } catch (SQLException e) {

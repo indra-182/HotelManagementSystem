@@ -279,10 +279,11 @@ public class CheckOut extends javax.swing.JFrame {
         String checkOutDate = txtSetCheckOutDate.getText();
         String duration = txtSetDuration.getText();
         String totalPrice = txtSetTotalPrice.getText();
+        String queryUpdateRoom = "UPDATE rooms SET status = 'Available' WHERE room_number = '" + roomNumber + "'";
+        Query.setData(queryUpdateRoom, "");
         String queryCheckOut = "UPDATE transactions SET check_out_date = '" + checkOutDate + "', duration_days = '" + duration + "', total_price = '" + totalPrice + "' WHERE id = '" + id + "'";
         Query.setData(queryCheckOut, "CheckOut Success");
-        String queryUpdateRoom = "UPDATE rooms SET status = 'Available' WHERE room_number = '" + roomNumber + "'";
-        Query.setData(queryUpdateRoom, "Update Room Success");
+
 
         int choose = JOptionPane.showConfirmDialog(null, "Do you want to print bill?", "Print Bill", JOptionPane.YES_NO_OPTION);
         if (choose == 0) {
